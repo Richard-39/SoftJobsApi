@@ -3,12 +3,12 @@ const { Pool } = require('pg')
 require('dotenv').config()
 
 const pool = new Pool({
-    host: process.env.DB_HOST,
+    host: process.env.DB_HOST, // al parecer no reconoce el host local en env, por lo que usa el externo
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: process.env.PORT,
-    ssl: true, // importante para evitar error de ssl en consola de render
+    port: process.env.DB_PORT, // PORT lo usa el sistema general, por lo que al parecer genera problemas usarlo // https://render.com/docs/environment-variables#all-services-1
+    ssl: true, // importante para evitar error de ssl en consola de render // https://stackoverflow.com/questions/22301722/ssl-for-postgresql-connection-nodejs
     allowExitOnIdle: true
 })
 
