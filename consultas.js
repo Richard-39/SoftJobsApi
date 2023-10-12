@@ -7,8 +7,8 @@ const pool = new Pool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: 5432,
-    ssl: true,
+    port: process.env.PORT,
+    ssl: true, // importante para evitar error de ssl en consola de render
     allowExitOnIdle: true
 })
 
