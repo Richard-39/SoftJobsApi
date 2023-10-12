@@ -9,7 +9,7 @@ require('dotenv').config()
 const { registrarUsuario, verificarCredenciales, obtenerDatosDeUsuario } = require("./consultas")
 const { checkCredentialsExists, tokenVerification } = require("./middlewares")
 
-app.listen(3000, console.log("SERVER ON"))
+app.listen(process.env.PORT || 3000, console.log("SERVER ON"))
 app.use(cors())
 app.use(express.json())
 
